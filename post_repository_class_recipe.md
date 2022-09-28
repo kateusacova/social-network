@@ -1,23 +1,6 @@
-# {{TABLE NAME}} Model and Repository Classes Design Recipe
-
-_Copy this recipe template to design and implement Model and Repository classes for a database table._
+# POSTS Model and Repository Classes Design Recipe
 
 ## 1. Design and create the Table
-
-If the table is already created in the database, you can skip this step.
-
-Otherwise, [follow this recipe to design and create the SQL schema for your table](./single_table_design_recipe_template.md).
-
-*In this template, we'll use an example table `students`*
-
-```
-# EXAMPLE
-
-Table: students
-
-Columns:
-id | name | cohort_name
-```
 
 ## 2. Create Test SQL seeds
 

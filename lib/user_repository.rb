@@ -38,8 +38,17 @@ class UserRepository
   
 
   def update(user, id)
-    query = "UPDATE users SET email = $1, username = $2  WHERE id = $3;"
-    params = [user.email, user.username, id]
+    if user.username == nil
+      query = "UPDATE users SET email = $2 WHERE id = $1;"
+      params = [id, user.email]
+    elsif user.email == nil
+      query = "UPDATE users SET username = $2  WHERE id = $1;"
+      params = [id, user.username]
+    else
+      query = "UPDATE users SET email = $3, username = $2  WHERE id = $1;"
+      params = [id, user.username, user.email]
+    end
+
     result = DatabaseConnection.exec_params(query, params)
   end
 
