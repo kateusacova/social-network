@@ -62,5 +62,4 @@ class UserRepository
 
     user
   end
-
 end
