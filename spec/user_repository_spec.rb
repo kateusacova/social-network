@@ -51,19 +51,24 @@ RSpec.describe UserRepository do
 
   it "Returns an updated User object" do
     repo = UserRepository.new
-    user = User.new
-    user.username = "kate_new"
-    repo.update(user, 1) 
+    user = repo.find(1)
+    user.username = "Something else"
+    user.email = "Something else email"
+    
+    repo.update(user) 
+
     expect(repo.find(1).username).to eq user.username
+    expect(repo.find(1).email).to eq user.email
   end
 
   it "Returns an updated User object" do
     repo = UserRepository.new
-    user = User.new
-    user.username = "kate_new"
-    user.email = "kate_new@gmail.com"
-    repo.update(user, 1) 
+    user = repo.find(1)
+    user.username = "Test"
+    
+    repo.update(user) 
+
     expect(repo.find(1).username).to eq user.username
-    expect(repo.find(1).email).to eq user.email
+    expect(repo.find(1).email).to eq "kate@gmail.com"
   end
 end

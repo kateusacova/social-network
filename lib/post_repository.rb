@@ -38,7 +38,7 @@ class PostRepository
 
   def update(post, id)
     query = "UPDATE posts SET title = $1, content = $2, views = $3, user_id = $4  WHERE id = $5;"
-    params = [post.title, post.content, post.views, post.user_id, id]
+    params = [post.title, post.content, post.views, post.user_id, post.id]
     result = DatabaseConnection.exec_params(query, params)
   end
 

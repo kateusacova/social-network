@@ -54,9 +54,12 @@ RSpec.describe PostRepository do
 
   it "Returns an updated Post object" do
     repo = PostRepository.new
-    post = Post.new
+    post = repo.find(1)
     post.title = "Best Day"
+    
     repo.update(post, 1) 
+
     expect(repo.find(1).title).to eq post.title
+    expect(repo.find(1).content).to eq "It was good!"
   end
 end
